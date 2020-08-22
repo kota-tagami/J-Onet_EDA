@@ -1,0 +1,9 @@
+Data path: IPD_DL_numeric_1_8.xlsx
+Data version: 1.8
+DL date: 2020-08-22
+
+Variable list: 2020-08-22
+
+ウェブからデータをダウンロードして、ここに入れる。
+使用する変数リストファイルxlsxを編集する。
+make_onet_score.Rを実行してapp用のデータを作成する。
