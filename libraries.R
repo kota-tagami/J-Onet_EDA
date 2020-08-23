@@ -1,0 +1,6 @@
+library(shiny)
+library(shinythemes)
+library(tidyverse)
+library(DT)
+library(showtext)
+library(ggthemes)
