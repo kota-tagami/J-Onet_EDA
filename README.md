@@ -5,6 +5,8 @@ Exploratory Data Analysis for Japanese O*net
 
 ## App
 
+https://kt-tgm.shinyapps.io/J-Onet_EDA/
+
 ### Purpose
 
 日本版O*netの数値データの探索的分析を行うためのウェブアプリの開発
@@ -21,5 +23,6 @@ Exploratory Data Analysis for Japanese O*net
 
 ## History
 
+- 2020-08-24 Prototypeリリース
 - 2020-08-22 Prototype開発
 
