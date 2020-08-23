@@ -1,9 +1,15 @@
-## ggplot theme
+source("libraries.R")
+
+##==============##
+## ggplot theme ##
+##==============##
 font_add_google("Noto Sans JP", "noto sans jp")
 showtext_auto()
 theme_set(theme_few(base_size = 20, base_family = "noto sans jp"))
 
-## Data
+##=============##
+## Data import ##
+##=============##
 onet_score <-
   "Data/onet_score.csv" %>% 
   read_csv() %>% 
@@ -22,10 +28,19 @@ vars_group <-
   pull(type) %>% 
   as.character()
 
-## Default variable
+
+##===============##
+## Global for UI ##
+##===============##
 default_vars_group <- head(vars_group, 1)
 default_vars_name <- 
   varslist %>% 
   filter(type == default_vars_group) %>% 
   pull(label) %>% 
   as.character() 
+
+
+##=========##
+## Modules ##
+##=========##
+
