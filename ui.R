@@ -1,12 +1,11 @@
 ui <- navbarPage(
+  
   ## App title
-  title = p(
-    "Exploratory Data Analysis for Japanese O*net",
-    span("0.0.0.9000", style = "background-color:#586c7e; font-size:60%")
-  ),
+  title = "Exploratory Data Analysis for Japanese O*net",
   
   # header = "This is a header",
-  # footer = "This is a footer",
+
+  footer = span("version: 0.0.0.9000", style = "color:#586c7e"), 
   
   theme = shinytheme("cerulean"),
   
