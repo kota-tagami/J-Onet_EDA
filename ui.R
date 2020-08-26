@@ -1,6 +1,14 @@
 ui <- navbarPage(
   ## App title
-  "Exploratory Data Analysis for Japanese O*net",
+  title = p(
+    "Exploratory Data Analysis for Japanese O*net",
+    span("0.0.0.9000", style = "background-color:#586c7e; font-size:60%")
+  ),
+  
+  # header = "This is a header",
+  # footer = "This is a footer",
+  
+  theme = shinytheme("cerulean"),
   
   ## Analysis 1
   ## Scatterplot
@@ -70,11 +78,19 @@ ui <- navbarPage(
     )
   ),
   
+  
   ## Analysis 2
   tabPanel("Analysis 2"),
+  
   
   ## Analysis 3
   tabPanel("Analysis 3"),
   
-  theme = shinytheme("cerulean")
+  
+  ## Description
+  tabPanel(
+    "README",
+    includeMarkdown("README.md")
+  )
+  
 )
