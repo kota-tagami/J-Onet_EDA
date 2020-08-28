@@ -3,7 +3,7 @@ ui <- navbarPage(
   ## App title
   title = "Exploratory Data Analysis for Japanese O*net",
   
-  # header = "This is a header",
+  header = reference,
 
   footer = span("version: 0.0.0.9000", style = "color:#586c7e"), 
   
