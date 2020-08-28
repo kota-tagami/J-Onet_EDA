@@ -1,5 +1,28 @@
 source("libraries.R")
 
+##===========##
+## Reference ##
+##===========##
+onet_ver <- "ver.1.8"
+dl_date <- "20201年8月20日"
+
+reference <- 
+  str_c(
+    "出典：",
+    "独立行政法人労働政策研究・研修機構（JILPT）作成",
+    "「職業情報データベース 簡易版数値系ダウンロードデータ",
+    " ",
+    onet_ver,
+    "」",
+    "\n",
+    "職業情報提供サイト（日本版O-NET）より",
+    dl_date,
+    "にダウンロード",
+    "\n",
+    "（https://shigoto.mhlw.go.jp/User/download）を加工して作成"
+  )
+
+
 ##==============##
 ## ggplot theme ##
 ##==============##
