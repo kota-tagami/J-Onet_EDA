@@ -5,7 +5,7 @@ ui <- navbarPage(
   
   header = reference,
 
-  footer = span("version: 0.0.0.9000", style = "color:#586c7e"), 
+  footer = span(app_ver, style = "color:#586c7e"), 
   
   theme = shinytheme("cerulean"),
   
@@ -14,6 +14,7 @@ ui <- navbarPage(
   tabPanel(
     "Scatter Plot", 
     fluidPage(
+      add_busy_bar(color = "#FF0000"),
       titlePanel("Scatter Plot"),
       sidebarLayout(
         sidebarPanel(
@@ -58,7 +59,7 @@ ui <- navbarPage(
                         min = 0.1, 
                         max = 0.9, 
                         value = 0.65,
-                        step = 0.01),
+                        step = 0.05),
             helpText("Local Polynomial Regression Fitting is used for the nonparametric smoothing")
           )
         ),
@@ -69,7 +70,7 @@ ui <- navbarPage(
           ),
           
           tabsetPanel(
-            tabPanel("Plot", plotOutput("spPlot")),
+            tabPanel("Plot", plotlyOutput("spPlot", width = "700px", height = "700px")),
             tabPanel("Data", dataTableOutput("spData"))
           )
         )
