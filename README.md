@@ -14,11 +14,14 @@ http://kt-tgm.shinyapps.io/J-Onet_EDA
 
 ### Content
 
-- 散布図
+#### Onet Score Items
 
-- 相関分析
+- 「職業興味」「仕事価値観」「スキル」「知識」「仕事の性質」「教育と訓練」
 
-- 職業項目としては、「職業興味」「仕事価値観」「スキル」「知識」「仕事の性質」をもちいる
+
+#### Analysis
+
+- Scatter Plot, Linear Smoothing, Non-parametric Smoothing, and Correlation
 
 
 ## About Japanese O*net
@@ -42,6 +45,7 @@ Please use this application only for explanatory purpose.
 
 ## History
 
+- 2020-08-31: Release version 0.0.0.9001
 - 2020-08-26: Release version 0.0.0.9000
 - 2020-08-22: Prototype開発
 

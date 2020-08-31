@@ -23,8 +23,8 @@ server <- function(input, output, session) {
   ## Y variable
   observeEvent(input$spYGroup, 
                update_sp_var(session, input$spYGroup, "spYVar"))
-
   
+
   ####=================####
   #### Reactive object ####
   ####=================####
@@ -43,7 +43,7 @@ server <- function(input, output, session) {
       filter(label %in% sp_vars) %>% 
       select(occ_name, label, value) %>% 
       pivot_wider(names_from = label, values_from = value) %>% 
-      relocate(sp_vars, .after = occ_name) %>% 
+      relocate(all_of(sp_vars), .after = occ_name) %>% 
       rename("職業" = occ_name) 
     ## The return has only three vars
     ## occ, x, and y (the order is critical)
@@ -59,7 +59,14 @@ server <- function(input, output, session) {
   output$spData <- renderDataTable(sp_data())
   
   ## Scatterplot 
-  output$spPlot <- renderPlot({
+  output$spPlot <- renderPlotly({
+    validate(
+      need(
+        input$spXVar != input$spYVar,
+        message = "Choose different variables for the x and y axis"
+      )
+    )
+    
     x_var <- sp_data() %>% select(2) %>% names()
     y_var <- sp_data() %>% select(3) %>% names()
     x <- sp_data() %>% pull(2)
@@ -69,17 +76,17 @@ server <- function(input, output, session) {
     
     r <- cor(x, y, use = "complete.obs")
     
-    rtn_obj <- 
+    plot_data <- 
       sp_data() %>% 
-      rename("x" = 2, "y" = 3) %>% 
-      ggplot(aes(x, y)) +
-      geom_vline(xintercept = x_mean, linetype = "dotted", color = "grey20") +
-      geom_hline(yintercept = y_mean, linetype = "dotted", color = "grey20") +
-      geom_point(
-        size = 1.5
-      ) +
+      rename("x" = 2, "y" = 3)
+    
+    gg <- 
+      ggplot(plot_data) +
+      geom_vline(xintercept = x_mean, linetype = "dotted", color = "grey60") +
+      geom_hline(yintercept = y_mean, linetype = "dotted", color = "grey60") +
       geom_smooth(
-        size = 1,
+        aes(x, y),
+        size = 0.5,
         method = "loess", 
         formula = y ~ x,
         se = FALSE, 
@@ -88,18 +95,27 @@ server <- function(input, output, session) {
         color = "#83c3e8"
       ) +
       geom_smooth(
-        size = 1.5,
+        aes(x, y),
+        size = 0.8,
         method = "lm", 
         formula = y ~ x,
         se = FALSE, 
-        alpha = 0.8,
+        # alpha = 0.8,
         color = "#cd4e2d"
       ) +
+      suppressWarnings(geom_point(
+        aes(x, y, text = `職業`, group = `職業`),
+        size = 1.5,
+        color = "grey40"
+      )) +
       theme(
         plot.title = element_text(color = "grey20", size = 18),
         plot.caption = element_text(color = "grey20", size = 10),
         axis.title = element_text(color = "grey20", size = 18),
         axis.text = element_text(color = "grey20", size = 16),
+        axis.ticks.x = element_line(color = "grey60"),
+        axis.ticks.y = element_line(color = "grey60"),
+        panel.border = element_blank(),
       ) +
       labs(
         title = str_c("Pearson's R: ", sprintf("%1.3f", r)),
@@ -107,8 +123,17 @@ server <- function(input, output, session) {
         y = y_var
       )
     
+    rtn_obj <-
+      gg %>% 
+      ggplotly(tooltip = c("text", "x", "y")) %>% 
+      plotly::style(hoverinfo = "none", traces = 1:4) %>% 
+      withr::with_options(
+        list(digits = 2, nsmall = 2), 
+        .
+      ) 
+    
     return(rtn_obj)
-  }, width = 600, height = 600)
+  })
 
   ## Parameters check section
   output$spXVar <- 
