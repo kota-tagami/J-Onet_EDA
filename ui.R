@@ -5,7 +5,7 @@ ui <- navbarPage(
   
   header = reference,
 
-  footer = span(app_var, style = "color:#586c7e"), 
+  footer = span(app_ver, style = "color:#586c7e"), 
   
   theme = shinytheme("cerulean"),
   
