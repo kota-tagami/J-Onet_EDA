@@ -73,7 +73,8 @@ scatterplotUI <- function(id){
           ),
           wellPanel(
             tabsetPanel(
-              tabPanel("Plot", plotlyOutput(NS(id, "plot"), width = "700px", height = "700px")),
+              tabPanel("Plot", plotlyOutput(NS(id, "plot"), 
+                                            width = "80%", height = "auto")),
               tabPanel("Data", dataTableOutput(NS(id, "table")))
             )
           )
@@ -232,6 +233,13 @@ scatterplotServer <- function(id) {
         withr::with_options(
           list(digits = 2, nsmall = 2),
           .
+        ) %>% 
+        config(
+          toImageButtonOptions = list(
+            format = "png",
+            width = 700,
+            height = 600
+          )
         )
 
       plot
