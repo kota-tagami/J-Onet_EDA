@@ -53,11 +53,13 @@ vars_group <-
   pull(type) %>% 
   as.character()
 
+default_vars_group <- 
+  vars_group %>% 
+  head(1)
 
 ##===============##
 ## Global for UI ##
 ##===============##
-default_vars_group <- head(vars_group, 1)
 default_vars_name <- 
   varslist %>% 
   filter(type == default_vars_group) %>% 
