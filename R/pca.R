@@ -107,17 +107,17 @@ outputUI <- function(id) {
       well = T,
       widths = c(2, 10),
       tabPanel(
-        "Plot1", 
+        "Principal Components", 
         h3("Contribution to variance"),
         plotlyOutput(NS(id, "components"), width = "80%", height = "auto")
       ),
       tabPanel(
-        "Plot2", 
+        "Variables", 
         h3("Contribution of variables"),
         plotlyOutput(NS(id, "variables"), width = "80%", height = "700px")
       ),
       tabPanel(
-        "Plot3", 
+        "Occupations", 
         h3("Contribution of individual occupations"),
         plotlyOutput(NS(id, "individuals"), width = "80%", height = "700px")
       ),
