@@ -3,10 +3,10 @@ source("libraries.R")
 ##===========##
 ## Reference ##
 ##===========##
-app_ver <- str_c("version: ", "0.0.0.9001")
+app_ver <- str_c("version: ", "0.0.0.9002")
 
 onet_ver <- "ver.1.8"
-dl_date <- "20201年8月20日"
+dl_date <- "2020年8月20日"
 
 reference <- 
   str_c(
