@@ -9,8 +9,8 @@ ui <- navbarPage(
   ## Scatterplot
   tabPanel("Scatter Plot", scatterplotUI("sp01")),
   
-  ## Analysis 2
-  tabPanel("Analysis 2"),
+  ## Principal Componet Analysis
+  tabPanel("Principal Componet Analysis", pcaUI("pca01")),
   
   ## Analysis 3
   tabPanel("Analysis 3"),
