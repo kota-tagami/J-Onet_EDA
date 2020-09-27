@@ -135,6 +135,7 @@ pcaUI <- function(id){
     # tags$head(
     #   tags$script(HTML(js))
     # ),
+    add_busy_bar(color = "#FF0000"),
     titlePanel("Principal Component Analysis"),
     tabsetPanel(
       id = NS(id, "topTabset"),
