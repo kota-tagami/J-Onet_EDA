@@ -1,8 +1,12 @@
 library(shiny)
 library(shinythemes)
-library(tidyverse)
-library(DT)
+library(shinybusy)
+
 library(showtext)
+
+library(tidyverse)
+
+library(DT)
 library(ggthemes)
 library(plotly)
-library(shinybusy)
+library(ggrepel)

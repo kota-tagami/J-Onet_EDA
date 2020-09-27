@@ -23,6 +23,7 @@ http://kt-tgm.shinyapps.io/J-Onet_EDA
 
 - Scatter Plot, Linear Smoothing, Non-parametric Smoothing, and Correlation
 
+- Principal Components Analysis
 
 ## About Japanese O*net
 
@@ -45,6 +46,7 @@ Please use this application only for explanatory purpose.
 
 ## History
 
+- 2020-09-27: Release version 0.0.0.9002
 - 2020-08-31: Release version 0.0.0.9001
 - 2020-08-26: Release version 0.0.0.9000
 - 2020-08-22: Prototype開発
