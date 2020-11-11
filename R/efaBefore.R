@@ -30,6 +30,7 @@ efaBeforeUI <- function(id){
     add_busy_bar(color = "#FF0000"),
     titlePanel("Before Exploratory Factor Analysis: "),
     h2("The decision of the number of factors"),
+    helpText(caution_msg),
     tabsetPanel(
       id = NS(id, "topTabset"),
       type = "pills",

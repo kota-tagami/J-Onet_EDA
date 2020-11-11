@@ -91,3 +91,5 @@ default_vars_name <-
 ## Helper Modules ##
 ##================##
 source("R/helper_input_pca_efa.R")
+caution_msg <- 
+  "* The contents are subject to change without notice."
