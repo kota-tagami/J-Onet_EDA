@@ -12,9 +12,13 @@ ui <- navbarPage(
   ## Principal Componet Analysis
   tabPanel("Principal Componet Analysis", pcaUI("pca01")),
   
-  ## Analysis 3
-  tabPanel("Analysis 3"),
-  
+  ## Exploratory Factor Analysis
+  navbarMenu(
+    "Exploratory Factor Analysis",
+    tabPanel("Before EFA", efaBeforeUI("efaBefore01")),
+    tabPanel("Main Results")
+  ),
+
   ## Description
   tabPanel("README", includeMarkdown("README.md"))
   

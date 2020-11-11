@@ -10,3 +10,7 @@ library(DT)
 library(ggthemes)
 library(plotly)
 library(ggrepel)
+
+library(psych)
+library(tidygraph)
+library(ggraph)
