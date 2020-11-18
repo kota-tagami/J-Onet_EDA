@@ -5,4 +5,6 @@ server <- function(input, output, session) {
   pcaServer("pca01")
   ## Before Exploratory Factor Analysis
   efaBeforeServer("efaBefore01")
+  ## Main EFA results
+  efaMainServer("efaMain01")
 }

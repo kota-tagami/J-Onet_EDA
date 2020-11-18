@@ -16,7 +16,7 @@ ui <- navbarPage(
   navbarMenu(
     "Exploratory Factor Analysis",
     tabPanel("Before EFA", efaBeforeUI("efaBefore01")),
-    tabPanel("Main Results")
+    tabPanel("Main Results", efaMainUI("efaMain01"))
   ),
 
   ## Description
