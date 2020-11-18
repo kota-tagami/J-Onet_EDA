@@ -138,7 +138,7 @@ efaBeforeServer <- function(id){
     
     
     ## KMO
-    res_kmo <- reactive({
+    res_kmo <- eventReactive(input$show, {
       psych::KMO(data_efa())
     })
     
@@ -197,7 +197,7 @@ efaBeforeServer <- function(id){
     
     
     ## Screeplot
-    res_scree <- reactive({
+    res_scree <- eventReactive(input$show, {
       quiet(
         psych::fa.parallel(data_efa(), plot = F, fa = "fa", use = "complete.obs")
       )
@@ -262,7 +262,7 @@ efaBeforeServer <- function(id){
     
     
     ## VSS
-    res_vss <- reactive({
+    res_vss <- eventReactive(input$show, {
       psych::VSS(data_efa(), n = 8, plot = F)
     })
       
