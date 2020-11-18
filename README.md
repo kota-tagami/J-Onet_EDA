@@ -25,6 +25,9 @@ http://kt-tgm.shinyapps.io/J-Onet_EDA
 
 - Principal Components Analysis
 
+- Exploratory Factor Analysis
+
+
 ## About Japanese O*net
 
 ### Source Data
@@ -46,6 +49,7 @@ Please use this application only for explanatory purpose.
 
 ## History
 
+- 2020-11-18: Release version 0.0.0.9003
 - 2020-09-27: Release version 0.0.0.9002
 - 2020-08-31: Release version 0.0.0.9001
 - 2020-08-26: Release version 0.0.0.9000

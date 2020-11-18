@@ -3,7 +3,7 @@ source("libraries.R")
 ##===========##
 ## Reference ##
 ##===========##
-app_ver <- str_c("version: ", "0.0.0.9002")
+app_ver <- str_c("version: ", "0.0.0.9003")
 
 onet_ver <- "ver.1.8"
 dl_date <- "2020年8月20日"
@@ -44,7 +44,27 @@ onet_score <-
 ## Variable list
 varslist <- 
   onet_score %>% 
-  distinct(name, type, label)
+  distinct(name, type, label) %>% 
+  mutate(
+    type_en = type %>% 
+      fct_recode(!!!c(
+        "Occupational Interest" = "職業興味",
+        "Job Value" = "仕事価値観",
+        "Skill" = "スキル",
+        "Knowledge" = "知識",
+        "Job Quality" = "仕事の性質",
+        "Education and Training" = "教育と訓練"
+      )),
+  ) %>% 
+  group_by(type) %>% 
+  mutate(
+    item_id = type_en %>% 
+      abbreviate(2L) %>% 
+      str_c(., row_number(), sep = "-") %>% 
+      fct_inorder(),
+  ) %>% 
+  ungroup()
+
 
 ## Variable group
 vars_group <- 
@@ -67,7 +87,9 @@ default_vars_name <-
   as.character() 
 
 
-##=========##
-## Modules ##
-##=========##
-
+##================##
+## Helper Modules ##
+##================##
+source("R/helper_input_pca_efa.R")
+caution_msg <- 
+  "* The contents are subject to change without notice."
